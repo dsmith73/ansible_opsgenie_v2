@@ -1,0 +1,38 @@
+type: {{ item.type }}
+name: {{ item.name }}
+enabled: {{ item.enabled }}
+{% if item.type == 'email' %}
+emailUsername: {{ item.email_username }}
+recipients:
+{% for recipient in item.recipients %}
+  - type: {{ recipient.type }}
+{% if recipient.type == 'user' %}
+    username: {{ recipient.name }}
+{% elif recipient.type == 'all' %}
+{% else %}
+    name: {{ recipient.name }}
+{% endif %}
+{% endfor %}
+ownerTeam:
+  name: {{ item.owner_team }}
+{% endif %}
+{% else %}
+allowConfigurationAccess: {{ item.allow_config_access }}
+allowWriteAccess: {{ all_write_access }}
+allowReadAccess: {{ allow_read_access }}
+allowDeleteAccess: {{ allow_delete_access }}
+recipients:
+{% for recipient in item.recipients %}
+  - type: {{ recipient.type }}
+{% if recipient.type == 'user' %}
+    username: {{ recipient.name }}
+{% else %}
+    name: {{ recipient.name }}
+{% endif %}
+{% endfor %}
+ownerTeam:
+  name: {{ item.owner_team }}
+{% endif %}
+ignoreRecipientsFromPayload: {{ ignore_recipients_from_payload }}
+ignoreTeamsFromPayload: {{ ignore_teams_from_payload }}
+suppressNotifications: {{ item.suppress_notifications }}

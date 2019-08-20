@@ -1,0 +1,8 @@
+---
+- name: Create Opsgenie Users
+  include_tasks: user_create.yml
+  when: og_create_users
+
+- name: Create Opsgenie Teams
+  include_tasks: team_create.yml
+  when: og_create_teams

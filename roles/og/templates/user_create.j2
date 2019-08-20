@@ -1,0 +1,24 @@
+username: {{ item.username }}
+fullName: {{ item.fullname }}
+role:
+  name: {{ item.role }}
+skypeUsername: {{ item.skypeusername | default(omit) }}
+userAddress:
+  country: {{ item.country | default(omit) }}
+  state: {{ item.state | default(omit) }}
+  city: {{ item.city | default(omit) }}
+  line: {{ item.line | default(omit) }}
+  zipCode: {{ item.zip | default(omit) }}
+timeZone: {{ item.timezone | default(omit) }}
+locale: {{ item.locale | default(omit) }}
+invitationDisabled: {{ item.emailinvite|lower|default(omit) }}
+{% if item.details is defined %}
+details:
+  {{ item.details }}
+{% endif %}
+{% if item.tags is defined %}
+tags:
+{% for tags in item.tags %}
+  - {{ tags }}
+{% endfor %}
+{% endif %}

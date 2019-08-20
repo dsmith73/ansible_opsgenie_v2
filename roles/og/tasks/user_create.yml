@@ -1,0 +1,25 @@
+---
+- name: read users csv
+  read_csv:
+    path: "{{ user_csv_file }}"
+    delimiter: ','
+  when: use_csv
+  register: users_create
+
+- name: Create an Opsgenie user
+  og_user:
+    operation: create
+    apiKey: "{{ apikey }}"
+    details: "{{ lookup ('template', 'user_create.j2') | from_yaml }}"
+  when: use_csv
+  register: output
+  with_items: "{{ users_create.list }}"
+
+- name: Create an Opsgenie user
+  og_user:
+    operation: create
+    apiKey: "{{ apikey }}"
+    details: "{{ lookup ('template', 'user_create.j2') | from_yaml }}"
+  when: not use_csv
+  register: output
+  with_items: "{{ users }}"

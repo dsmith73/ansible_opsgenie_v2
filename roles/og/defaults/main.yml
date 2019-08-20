@@ -1,0 +1,3 @@
+---
+use_csv: false
+user_csv_file: roles/og/files/users.csv

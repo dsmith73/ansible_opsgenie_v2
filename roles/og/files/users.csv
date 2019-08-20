@@ -1,0 +1,5 @@
+username,fullname,role,skypeusername,country,state,city,line,zip,timezone,locale,emailinvite
+test@mydomain.com,test1 user,User,,US,Indiana,Terre Haute,567 Stratford Park,,UTC-5,en_US,false
+test2@mydomain.com,test2 user,User,,US,Indiana,Terre Haute,568 Stratford Park,,UTC-5,en_US,false
+test3@mydomain.com,test3 user,User,,US,Indiana,Terre Haute,569 Stratford Park,,UTC-5,en_US,false
+test4@mydomain.com,test4 user,User,,US,Indiana,Terre Haute,570 Stratford Park,,UTC-5,en_US,false

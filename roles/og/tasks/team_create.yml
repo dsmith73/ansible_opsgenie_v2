@@ -1,0 +1,24 @@
+- name: read teams csv
+  read_csv:
+    path: "{{ team_csv_file }}"
+    delimiter: ','
+  when: use_csv
+  register: teams_create
+
+- name: Create an Opsgenie team via CSV
+  og_team:
+    apiKey: "{{ apikey }}"
+    operation: create
+    details: "{{ lookup ('template', 'team_create.j2') | from_yaml }}"
+  when: use_csv
+  register: output
+  with_items: "{{ teams_create.list }}"
+
+- name: Create OpsGenie Teams from Template
+  og_team:
+    apiKey: "{{ apikey }}"
+    operation: create
+    details: "{{ lookup ('template', 'team_create.j2') | from_yaml }}"
+  when: not use_csv
+  with_items: "{{ teams }}"
+  register: team_create_output

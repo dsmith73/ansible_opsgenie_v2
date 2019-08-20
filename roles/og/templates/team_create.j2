@@ -1,0 +1,11 @@
+name: {{ item.name }}
+description: {{ item.description }}
+{% if item.members is defined %}
+members:
+{% for member in item.members %}
+  - user:
+      username: {{ member.username }}
+    role: {{ member.role }}
+{% endfor %}
+{% endif %}
+

@@ -1,0 +1,52 @@
+---
+users:
+  - username: user1@mydomain.com
+    fullname: test user1
+    role: User
+    skypeusername:
+    country: US
+    state: Indiana
+    city: Terre Haute
+    line: 567 Stratford Park
+    zip: 47802
+    timezone: Asia/Colombo
+    locale: en_US
+    emailinvite: false
+  - username: user2@mydomain.com
+    fullname: test user2
+    role: User
+    skypeusername:
+    country: US
+    state: Indiana
+    city: Terre Haute
+    line: 567 Stratford Park
+    zip: 47802
+    timezone: Asia/Kolkata
+    locale: en_US
+    emailinvite: false
+    details:
+      detail1key:
+        - value1
+        - value2
+      detail2key:
+        - value3
+        - value4
+    tags:
+      - tag3
+      - tag4
+teams:
+  - name: testteam
+    description: random test team
+    members:
+      - username: user1@mydomain.com
+        role: user
+      - username: admin1@mydomain.com
+        role: Admin
+
+  - name: testteam2
+    description: random test team 2
+    members:
+      - username: user1@mydomain.com
+        role: User
+      - username: user2@mydomain.com
+        role: User
